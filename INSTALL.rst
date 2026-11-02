@@ -10,7 +10,7 @@ remove some of these steps.*
 Requirements
 ~~~~~~~~~~~~
 
-pywb is tested on python 3.9-3.14.
+pywb is tested on python 3.9-3.15.
 
 pywb tool suite provides several WSGI applications, which have been
 tested under *wsgiref*, *waitress*, and uWSGI.

@@ -129,7 +129,7 @@ setup(
             "babel-vue-extractor"
         ],
     },
-    python_requires='>=3.9,<3.15',
+    python_requires='>=3.9',
     tests_require=load_requirements("test_requirements.txt"),
     cmdclass={'test': PyTest},
     test_suite='',
@@ -155,6 +155,7 @@ setup(
         'Programming Language :: Python :: 3.12',
         'Programming Language :: Python :: 3.13',
         'Programming Language :: Python :: 3.14',
+        'Programming Language :: Python :: 3.15',
         'Topic :: Internet :: Proxy Servers',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: WSGI',

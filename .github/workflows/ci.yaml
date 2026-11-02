@@ -17,9 +17,9 @@ jobs:
     timeout-minutes: 20
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 6
+      max-parallel: 7
       matrix:
-        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13', '3.14']
+        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13', '3.14', '3.15']
 
     steps:
       - name: checkout

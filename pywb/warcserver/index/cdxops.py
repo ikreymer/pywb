@@ -10,7 +10,6 @@ from warcio.timeutils import PAD_14_DOWN, PAD_14_UP
 
 import logging
 
-from six.moves import zip, range, map
 import re
 
 from heapq import merge, heappush, heapreplace

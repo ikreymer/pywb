@@ -4,7 +4,6 @@ from pywb.warcserver.index.query import CDXQuery
 
 from pytest import raises
 
-import six
 
 
 URL = 'http://example.com/'
@@ -34,7 +33,7 @@ def lazy_cdx_load(**params):
 
     # exception happens on first access attempt
     with raises(AccessException):
-        six.next(cdx_iter)
+        next(cdx_iter)
 
 
 def test_no_process():

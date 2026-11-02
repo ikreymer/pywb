@@ -20,7 +20,6 @@ from pywb import get_test_dir
 import os
 import json
 import pytest
-import six
 import re
 
 
@@ -46,7 +45,7 @@ class TestContentRewriter(object):
 
         warc_headers = warc_headers or {}
 
-        if isinstance(payload, six.text_type):
+        if isinstance(payload, str):
             payload = payload.encode('utf-8')
 
         http_headers = StatusAndHeaders('200 OK', headers, protocol='HTTP/1.0')

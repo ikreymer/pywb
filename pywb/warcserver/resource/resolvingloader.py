@@ -1,4 +1,3 @@
-import six
 from warcio.recordloader import ArchiveLoadFailed
 from warcio.timeutils import iso_date_to_timestamp
 
@@ -133,7 +132,7 @@ class ResolvingLoader(object):
             if not possible_paths:
                 continue
 
-            if isinstance(possible_paths, six.string_types):
+            if isinstance(possible_paths, str):
                 possible_paths = [possible_paths]
 
             for path in possible_paths:
@@ -159,7 +158,7 @@ class ResolvingLoader(object):
             msg = 'Archive File Not Found'
 
         # raise ArchiveLoadFailed(msg, filename), None, last_traceback
-        six.reraise(ArchiveLoadFailed, ArchiveLoadFailed(filename + ': ' + msg), last_traceback)
+        raise ArchiveLoadFailed(filename + ': ' + msg).with_traceback(last_traceback)
 
     def _load_different_url_payload(self, cdx, headers_record,
                                     failed_files, cdx_loader):

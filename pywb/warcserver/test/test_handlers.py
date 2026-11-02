@@ -4,7 +4,7 @@ from .testutils import HttpBinLiveTests
 from collections import OrderedDict
 
 from io import BytesIO
-from six.moves.urllib.parse import urlencode
+from urllib.parse import urlencode
 
 import webtest
 from fakeredis import FakeStrictRedis

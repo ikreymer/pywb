@@ -1,7 +1,7 @@
 import re
 from pywb.rewrite.content_rewriter import StreamingRewriter
 from pywb.utils.loaders import load_py_name
-from six.moves.urllib.parse import unquote
+from urllib.parse import unquote
 
 
 # =================================================================

@@ -1,13 +1,13 @@
 import os
 
 import requests
-import six.moves.http_client
+import http.client
 from requests.adapters import DEFAULT_POOLBLOCK, HTTPAdapter
 from urllib3.poolmanager import PoolManager
 from urllib3.util.retry import Retry
 
-six.moves.http_client._MAXHEADERS = 10000
-six.moves.http_client._MAXLINE = 131072
+http.client._MAXHEADERS = 10000
+http.client._MAXLINE = 131072
 
 
 # =============================================================================

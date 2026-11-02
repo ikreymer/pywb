@@ -9,7 +9,6 @@ from mock import patch, Mock
 import pytest
 import os
 import sys
-import six
 
 
 # ============================================================================
@@ -18,9 +17,7 @@ def header_test_server(environ, start_response):
     if environ['PATH_INFO'] == '/unicode':
         body = b'body'
         value = u'⛄'
-        value = value.encode('utf-8')
-        if six.PY3:
-            value = value.decode('latin-1')
+        value = value.encode('utf-8').decode('latin-1')
 
         headers = [('Content-Length', str(len(body))),
                    ('x-utf-8', value)]
@@ -117,9 +114,7 @@ class TestLiveRewriter(HttpBinLiveTests, BaseConfigTest):
 
     def test_custom_unicode_header(self, fmod_sl):
         value = u'⛄'
-        value = value.encode('utf-8')
-        if six.PY3:
-            value = value.decode('latin-1')
+        value = value.encode('utf-8').decode('latin-1')
 
         resp = self.get('/live/{0}http://localhost:%s/unicode' % self.header_test_serv.port, fmod_sl)
         assert resp.headers['x-utf-8'] == value

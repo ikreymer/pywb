@@ -290,7 +290,6 @@ Exception: ArchiveLoadFailed
 import os
 import sys
 import pprint
-import six
 
 from warcio.recordloader import ArcWarcRecordLoader, ArchiveLoadFailed
 
@@ -389,7 +388,7 @@ def parse_stream_error(**params):
 
 #==============================================================================
 def print_strs(strings):
-    return list(map(lambda string: string.encode('utf-8') if six.PY2 else string, strings))
+    return list(strings)
 
 
 

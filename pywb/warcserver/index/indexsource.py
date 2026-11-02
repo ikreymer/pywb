@@ -1,4 +1,4 @@
-from six.moves.urllib.parse import quote_plus
+from urllib.parse import quote_plus
 from warcio.timeutils import PAD_14_DOWN, http_date_to_timestamp, pad_timestamp, timestamp_now, timestamp_to_http_date
 from warcio.timeutils import datetime_to_timestamp, timestamp_to_datetime, timestamp_to_sec
 

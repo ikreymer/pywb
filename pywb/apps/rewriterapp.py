@@ -2,7 +2,7 @@ from io import BytesIO
 
 import requests
 from fakeredis import FakeStrictRedis
-from six.moves.urllib.parse import unquote, urlencode, urlsplit, urlunsplit, parse_qsl
+from urllib.parse import unquote, urlencode, urlsplit, urlunsplit, parse_qsl
 from warcio.bufferedreaders import BufferedReader
 from warcio.recordloader import ArcWarcRecordLoader
 from warcio.timeutils import http_date_to_timestamp, timestamp_to_http_date

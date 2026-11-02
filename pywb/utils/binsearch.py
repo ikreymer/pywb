@@ -4,13 +4,11 @@ Utility functions for performing binary search over a sorted text file
 
 from collections import deque
 import itertools
-import six
 
 import sys
 
-if six.PY3:
-    def cmp(a, b):
-        return (a > b) - (a < b)
+def cmp(a, b):
+    return (a > b) - (a < b)
 
 
 # Buffer size for opening the sorted files searched here (CDX, CDXJ, ZipNum

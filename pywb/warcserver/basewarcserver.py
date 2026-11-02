@@ -10,7 +10,6 @@ import requests
 import traceback
 import json
 
-import six
 
 JSON_CT = 'application/json; charset=utf-8'
 
@@ -135,11 +134,7 @@ class BaseWarcServer(object):
         out_headers = {}
         res = self.json_encode(res, out_headers)
 
-        if six.PY3:
-            out_headers['ResErrors'] = res[0].decode('utf-8')
-        else:
-            out_headers['ResErrors'] = res[0]
-            message = message.encode('utf-8')
+        out_headers['ResErrors'] = res[0].decode('utf-8')
 
         if isinstance(status, str):
             message = status

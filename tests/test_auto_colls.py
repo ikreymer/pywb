@@ -10,7 +10,7 @@ import webtest
 import time
 import gevent
 
-from six import StringIO
+from io import StringIO
 
 import webtest
 from pytest import raises

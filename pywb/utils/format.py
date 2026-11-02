@@ -1,4 +1,4 @@
-from six.moves.urllib.parse import quote, parse_qsl
+from urllib.parse import quote, parse_qsl
 import string
 
 

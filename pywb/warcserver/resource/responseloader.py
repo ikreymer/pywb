@@ -5,9 +5,8 @@ import os
 import uuid
 from io import BytesIO
 
-import six
 from requests.models import PreparedRequest
-from six.moves.urllib.parse import quote, unquote, urljoin, urlsplit
+from urllib.parse import quote, unquote, urljoin, urlsplit
 from warcio.statusandheaders import StatusAndHeaders, StatusAndHeadersParser
 from warcio.timeutils import (
     datetime_to_http_date,
@@ -212,7 +211,7 @@ class WARCPathLoader(DefaultResolverMixin, BaseLoader):
         cdx._formatter = formatter
 
         def local_index_query(local_params):
-            for n, v in six.iteritems(params):
+            for n, v in params.items():
                 if n.startswith('param.'):
                     local_params[n] = v
 

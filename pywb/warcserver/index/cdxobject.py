@@ -3,11 +3,9 @@ try:  # pragma: no cover
 except ImportError:  # pragma: no cover
     from ordereddict import OrderedDict
 
-import six
-from six.moves import zip
 
-from six.moves.urllib.parse import urlencode, quote
-from six.moves.urllib.parse import parse_qs
+from urllib.parse import urlencode, quote
+from urllib.parse import parse_qs
 
 from pywb.utils.wbexception import WbException
 from warcio.utils import to_native_str
@@ -122,7 +120,7 @@ class CDXObject(OrderedDict):
             self[URLKEY] = to_native_str(fields[0], 'utf-8')
             self[TIMESTAMP] = to_native_str(fields[1], 'utf-8')
             json_fields = self.json_decode(to_native_str(fields[-1], 'utf-8'))
-            for n, v in six.iteritems(json_fields):
+            for n, v in json_fields.items():
                 n = to_native_str(n, 'utf-8')
                 n = self.CDX_ALT_FIELDS.get(n, n)
 
@@ -184,7 +182,7 @@ class CDXObject(OrderedDict):
             if self.cdxline:
                 return to_native_str(self.cdxline, 'utf-8') + '\n'
 
-            fields = six.iterkeys(self)
+            fields = self.keys()
 
         try:
             result = ' '.join(str(self.get(x, '-')) for x in fields) + '\n'
@@ -220,7 +218,7 @@ class CDXObject(OrderedDict):
             return to_native_str(self.cdxline, 'utf-8')
 
         if not self._from_json:
-            return ' '.join(str(val) for val in six.itervalues(self))
+            return ' '.join(str(val) for val in self.values())
         else:
             return json_encode(self)
 

@@ -5,8 +5,7 @@ import traceback
 import gevent
 import gevent.queue
 import requests
-import six
-from six.moves.urllib.parse import parse_qsl
+from urllib.parse import parse_qsl
 from warcio.recordloader import ArcWarcRecordLoader
 
 from pywb.recorder.filters import CollectionFilter, SkipRangeRequestFilter
@@ -329,7 +328,7 @@ class ReqWrapper(Wrapper):
         super(ReqWrapper, self).__init__(stream, params, create_func)
         self.headers = {}
 
-        for n in six.iterkeys(req_headers):
+        for n in req_headers.keys():
             if n.upper().startswith('WARC-'):
                 self.headers[n] = req_headers[n]
 

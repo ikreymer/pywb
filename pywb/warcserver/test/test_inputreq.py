@@ -2,7 +2,7 @@ from pywb.warcserver.inputrequest import DirectWSGIInputRequest, POSTInputReques
 from werkzeug.routing import Map, Rule
 
 import webtest
-from six.moves.urllib.parse import parse_qsl
+from urllib.parse import parse_qsl
 from io import BytesIO
 from pyamf import AMF3
 from pyamf.remoting import Request, Envelope, encode

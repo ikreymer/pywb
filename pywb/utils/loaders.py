@@ -11,8 +11,7 @@ import hashlib
 import requests
 import yaml
 
-import six
-from six.moves.urllib.parse import unquote_plus, urlsplit, urlencode
+from urllib.parse import unquote_plus, urlsplit, urlencode
 
 import time
 import pkgutil
@@ -348,7 +347,7 @@ class HttpLoader(BaseLoader):
             headers['Range'] = BlockLoader._make_range_header(offset, length)
 
         if self.cookie_maker:
-            if isinstance(self.cookie_maker, six.string_types):
+            if isinstance(self.cookie_maker, str):
                 headers['Cookie'] = self.cookie_maker
             else:
                 headers['Cookie'] = self.cookie_maker.make()

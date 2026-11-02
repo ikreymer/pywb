@@ -20,7 +20,6 @@ from pywb.warcserver.index.cdxops import process_cdx
 from pywb.warcserver.index.query import CDXQuery
 from pywb.warcserver.index.zipnum import ZipNumIndexSource
 
-import six
 import glob
 
 
@@ -152,7 +151,7 @@ class BaseSourceListAggregator(BaseAggregator):
 
         if not sel_sources or sel_sources == '*':
             if not invert_sources:
-                return six.iteritems(self.get_all_sources(params))
+                return self.get_all_sources(params).items()
             else:
                 return iter([])
 
@@ -179,7 +178,7 @@ class BaseSourceListAggregator(BaseAggregator):
         sel_sources = tuple([src.split(':', 1)[0]
                              for src in sel_sources.split(',')])
 
-        for name in six.iterkeys(sources):
+        for name in sources.keys():
             if name not in sel_sources:
                 yield (name, sources[name])
 

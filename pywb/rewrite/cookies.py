@@ -1,13 +1,11 @@
 from pywb.rewrite.cookie_rewriter import WbUrlBaseCookieRewriter, HostScopeCookieRewriter
 from warcio.timeutils import datetime_to_http_date
-from six.moves import zip
 
 import redis
 
 import tldextract
 import time
 import datetime
-import six
 
 
 # =============================================================================
@@ -42,8 +40,8 @@ class CookieTracker(object):
             if not res:
                 continue
 
-            for n, v in six.iteritems(res):
-                if six.PY3 and type(n) == six.binary_type:
+            for n, v in res.items():
+                if isinstance(n, bytes):
                     n = n.decode('utf-8')
                     v = v.decode('utf-8')
 

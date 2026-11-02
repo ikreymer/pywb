@@ -28,7 +28,7 @@ from warcio.archiveiterator import ArchiveIterator
 
 from pywb.indexer.cdxindexer import write_cdx_index
 
-from six.moves.urllib.parse import quote, unquote, urlencode
+from urllib.parse import quote, unquote, urlencode
 from io import BytesIO
 import time
 import json

@@ -6,7 +6,6 @@ import heapq
 import yaml
 import re
 import gzip
-import six
 import pathlib
 
 from distutils.util import strtobool
@@ -22,7 +21,6 @@ from warcio.timeutils import timestamp20_now
 
 from pywb import DEFAULT_CONFIG
 
-from six.moves import input
 
 
 #=============================================================================

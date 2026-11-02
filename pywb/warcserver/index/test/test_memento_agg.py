@@ -10,7 +10,6 @@ from pywb.warcserver.test.testutils import to_json_list, to_path, TEST_CDX_PATH,
 import json
 import pytest
 import time
-import six
 
 from mock import patch
 

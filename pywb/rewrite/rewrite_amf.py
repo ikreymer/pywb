@@ -1,5 +1,4 @@
 from io import BytesIO
-from six.moves import zip
 
 from pywb.rewrite.content_rewriter import BufferedRewriter
 

@@ -1,5 +1,31 @@
 # Releasing pywb
 
+## Pre-release checklist
+
+1. Update wombat to the [latest release](https://www.npmjs.com/package/@webrecorder/wombat):
+
+   ```bash
+   WOMBAT_VERSION=$(npm view @webrecorder/wombat version)
+   git submodule update --init wombat
+   git -C wombat fetch --tags
+   git -C wombat checkout "v$WOMBAT_VERSION"
+   ./build-wombat.sh
+   git add -u wombat pywb/static
+   ```
+
+2. Update wabac.js to the [latest release](https://www.npmjs.com/package/@webrecorder/wabac).
+   Running `setup.py` downloads the new service worker:
+
+   ```bash
+   WABAC_VERSION=$(npm view @webrecorder/wabac version)
+   perl -pi -e "s/WABAC_SW_VERSION = \"\K[^\"]+/$WABAC_VERSION/" setup.py
+   python setup.py --version
+   git add setup.py
+   ```
+
+3. Check the [Security tab](https://github.com/webrecorder/pywb/security) on
+   GitHub for any open Dependabot alerts about dependency vulnerabilities.
+
 ## Release from main
 
 1. Set `__version__` in `pywb/version.py` to the intended version, commit the

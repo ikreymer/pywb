@@ -30,6 +30,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      # isal currently has no Python 3.15 wheels, and building it from source needs nasm
+      - name: Install nasm
+        run: sudo apt-get update && sudo apt-get install -y nasm
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip

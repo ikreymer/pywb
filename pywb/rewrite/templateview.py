@@ -126,7 +126,7 @@ class JinjaEnv(object):
                 for loc in locales:
                     loc_map[loc] = Translations.load(locales_root_dir, [loc, default_locale])
             except:
-                logging.warn("Ignoring Locales. You must install i18n extensions with 'pip install pywb[i18n]' to use localization features")
+                logging.warning("Ignoring Locales. You must install i18n extensions with 'pip install pywb[i18n]' to use localization features")
 
         def get_translate(context):
             loc = context.get('env', {}).get('pywb_lang', default_locale)

@@ -23,8 +23,6 @@ from pywb.warcserver.access_checker import AccessChecker, CacheDirectoryAccessSo
 
 from pywb import DEFAULT_CONFIG
 
-from six import iteritems, iterkeys, itervalues
-from six.moves import zip
 import os
 
 
@@ -115,7 +113,7 @@ class WarcServer(BaseWarcServer):
 
         self.fixed_routes = self.load_colls()
 
-        for name, route in iteritems(self.fixed_routes):
+        for name, route in self.fixed_routes.items():
             if route == self.auto_handler:
                 self.add_route('/' + name, route, path_param_name='param.coll', default_value='*')
             else:
@@ -195,7 +193,7 @@ class WarcServer(BaseWarcServer):
         if not colls:
             return routes
 
-        for name, coll_config in iteritems(colls):
+        for name, coll_config in colls.items():
             try:
                 handler = self.load_coll(name, coll_config)
             except:
@@ -329,7 +327,7 @@ def register_source(source_cls, end=False):
 # ============================================================================
 def init_index_agg(source_configs, use_gevent=False, timeout=0, source_list=None):
     sources = {}
-    for n, v in iteritems(source_configs):
+    for n, v in source_configs.items():
         sources[n] = init_index_source(v, source_list=source_list)
 
     if use_gevent:

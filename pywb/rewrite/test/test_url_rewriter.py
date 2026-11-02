@@ -161,7 +161,7 @@ True
 
 
 from pywb.rewrite.url_rewriter import UrlRewriter, SchemeOnlyUrlRewriter
-from six.moves.urllib.parse import quote_plus, unquote_plus
+from urllib.parse import quote_plus, unquote_plus
 
 
 def do_rewrite(rel_url, base_url, prefix, mod=None, full_prefix=None):

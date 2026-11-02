@@ -77,8 +77,7 @@ import re
 import os
 import pytest
 
-import six
-from six import StringIO
+from io import StringIO
 from io import BytesIO
 import requests
 import yaml
@@ -209,7 +208,7 @@ collection:
     del os.environ['PYWB_FOO']
 
 def print_str(string):
-    return string.decode('utf-8') if six.PY3 else string
+    return string.decode('utf-8')
 
 
 if __name__ == "__main__":

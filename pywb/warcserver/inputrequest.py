@@ -4,9 +4,8 @@ from pywb.warcserver.amf import Amf
 from pyamf.remoting import decode
 from warcio.utils import to_native_str
 
-from six.moves.urllib.parse import urlsplit, quote, unquote_plus, urlencode
-from six import iteritems, StringIO, PY3
-from io import BytesIO
+from urllib.parse import urlsplit, quote, unquote_plus, urlencode
+from io import BytesIO, StringIO
 
 import base64
 import cgi
@@ -32,7 +31,7 @@ class DirectWSGIInputRequest(object):
     def get_req_headers(self):
         headers = {}
 
-        for name, value in iteritems(self.env):
+        for name, value in self.env.items():
             # will be set by requests to match actual host
             if name == 'HTTP_HOST':
                 continue
@@ -128,7 +127,7 @@ class DirectWSGIInputRequest(object):
             buff.write(parts.netloc)
             buff.write('\r\n')
 
-        for name, value in iteritems(headers):
+        for name, value in headers.items():
             if name.lower() == 'host':
                 continue
 
@@ -255,10 +254,8 @@ class MethodQueryCanonicalizer(object):
 
             args = dict(fp=BytesIO(query),
                         environ=env,
-                        keep_blank_values=True)
-
-            if PY3:
-                args['encoding'] = 'utf-8'
+                        keep_blank_values=True,
+                        encoding='utf-8')
 
             try:
                 data = cgi.FieldStorage(**args)

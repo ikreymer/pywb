@@ -2,7 +2,7 @@
 """
 
 import surt
-import six.moves.urllib.parse as urlparse
+import urllib.parse as urlparse
 
 from pywb.utils.wbexception import BadRequestException
 

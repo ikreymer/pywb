@@ -2,8 +2,7 @@ from gevent.monkey import patch_all; patch_all()
 
 from werkzeug.routing import Map, Rule, RequestRedirect, Submount
 from wsgiref.util import shift_path_info
-from six.moves.urllib.parse import urljoin, parse_qsl
-from six import iteritems
+from urllib.parse import urljoin, parse_qsl
 from warcio.utils import to_native_str
 from warcio.timeutils import iso_date_to_timestamp, timestamp_to_iso_date
 from wsgiprox.wsgiprox import WSGIProxMiddleware
@@ -898,7 +897,7 @@ class MetadataCache(object):
         for route in routes:
             self.load(route)
 
-        return {name: value[1] for name, value in iteritems(self.cache)}
+        return {name: value[1] for name, value in self.cache.items()}
 
 
 # ============================================================================

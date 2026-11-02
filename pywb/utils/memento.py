@@ -1,5 +1,4 @@
 import re
-import six
 
 from warcio.timeutils import timestamp_to_http_date, http_date_to_timestamp
 

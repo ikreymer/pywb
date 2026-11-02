@@ -1,8 +1,7 @@
 from pywb.warcserver.inputrequest import DirectWSGIInputRequest
 from pywb.utils.loaders import extract_client_cookie
 
-from six import iteritems
-from six.moves.urllib.parse import urlsplit
+from urllib.parse import urlsplit
 import re
 
 
@@ -50,7 +49,7 @@ class RewriteInputRequest(DirectWSGIInputRequest):
 
         has_cookies = False
 
-        for name, value in iteritems(self.env):
+        for name, value in self.env.items():
             if name == 'HTTP_HOST':
                 name = 'Host'
                 if self.splits:

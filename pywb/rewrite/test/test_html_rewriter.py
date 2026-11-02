@@ -447,7 +447,6 @@ from pywb.rewrite.html_rewriter import HTMLRewriter
 from pywb.rewrite.regex_rewriters import JSWombatProxyRewriter
 
 import pprint
-import six
 
 ORIGINAL_URL = 'http://example.com/some/path/index.html'
 
@@ -482,14 +481,7 @@ def parse(data, head_insert=None, urlrewriter=urlrewriter, parse_comments=False,
         parser.js_rewriter.first_buff = '{ '
         parser.js_rewriter.last_buff = ' }'
 
-    if six.PY2 and isinstance(data, six.text_type):
-        data = data.encode('utf-8')
-
     result = parser.rewrite(data) + parser.close()
-
-    if six.PY2:
-        # decode only for printing
-        result = result.decode('utf-8')
 
     print(result)
 

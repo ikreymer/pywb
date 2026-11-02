@@ -1,5 +1,5 @@
-from six.moves.socketserver import ThreadingMixIn
-from six.moves.BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
+from socketserver import ThreadingMixIn
+from http.server import HTTPServer, BaseHTTPRequestHandler
 
 from .server_thread import ServerThreadRunner
 

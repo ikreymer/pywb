@@ -1,4 +1,4 @@
-from six.moves.urllib.parse import urljoin, urlsplit, urlunsplit
+from urllib.parse import urljoin, urlsplit, urlunsplit
 
 from pywb.rewrite.wburl import WbUrl
 from pywb.rewrite.cookie_rewriter import get_cookie_rewriter

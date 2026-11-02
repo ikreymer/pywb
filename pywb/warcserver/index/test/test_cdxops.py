@@ -211,7 +211,6 @@ import random
 import re
 import sys
 import time
-import six
 import logging
 
 from mock import patch

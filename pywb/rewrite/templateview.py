@@ -3,7 +3,7 @@ from warcio.timeutils import timestamp_now
 
 from pywb.utils.loaders import load
 
-from six.moves.urllib.parse import urlsplit, quote
+from urllib.parse import urlsplit, quote
 
 from jinja2 import Environment, TemplateNotFound, pass_context, select_autoescape
 from jinja2 import FileSystemLoader, PackageLoader, ChoiceLoader

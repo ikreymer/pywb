@@ -42,10 +42,9 @@ wayback url format.
 """
 
 import re
-import six
 
-from six.moves.urllib.parse import urlsplit, urlunsplit
-from six.moves.urllib.parse import quote_plus, quote, unquote_plus
+from urllib.parse import urlsplit, urlunsplit
+from urllib.parse import quote_plus, quote, unquote_plus
 
 from warcio.utils import to_native_str
 
@@ -119,8 +118,6 @@ class WbUrl(BaseWbUrl):
         domain = parts.netloc.encode('utf-8')
         try:
             domain = domain.decode('idna')
-            if six.PY2:
-                domain = domain.encode('utf-8', 'ignore')
         except:
             # likely already encoded, so use as is
             pass
@@ -145,12 +142,6 @@ class WbUrl(BaseWbUrl):
         sep = url[len(parts[0])] if len(parts) > 1 else None
 
         scheme_dom = unquote_plus(parts[0])
-
-        if six.PY2 and isinstance(scheme_dom, six.binary_type):
-            if scheme_dom == parts[0]:
-                return url
-
-            scheme_dom = scheme_dom.decode('utf-8', 'ignore')
 
         scheme_dom = scheme_dom.rsplit('/', 1)
         domain = scheme_dom[-1]
@@ -183,10 +174,6 @@ class WbUrl(BaseWbUrl):
 
     def __init__(self, orig_url):
         super(WbUrl, self).__init__()
-
-        if six.PY2 and isinstance(orig_url, six.text_type):
-            orig_url = orig_url.encode('utf-8')
-            orig_url = quote(orig_url)
 
         self._original_url = orig_url
 

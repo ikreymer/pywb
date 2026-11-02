@@ -6,7 +6,6 @@ from pywb.utils.binsearch import INDEX_FILE_BUFFER_SIZE, iter_exact
 from pywb.warcserver.index.indexsource import RedisIndexSource
 
 from pywb.utils.loaders import from_file_url
-import six
 
 import os
 import logging
@@ -135,7 +134,7 @@ class DefaultResolverMixin(object):
 
     @classmethod
     def make_resolvers(cls, paths):
-        if isinstance(paths, six.string_types):
+        if isinstance(paths, str):
             paths = [paths]
         elif paths is None:
             paths = []

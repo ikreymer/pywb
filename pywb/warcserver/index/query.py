@@ -1,4 +1,4 @@
-from six.moves.urllib.parse import urlencode
+from urllib.parse import urlencode
 from pywb.warcserver.index.cdxobject import CDXException
 from pywb.utils.canonicalize import calc_search_range
 from pywb.utils.format import to_bool

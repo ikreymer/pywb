@@ -7,8 +7,7 @@ from pywb import DEFAULT_RULES_FILE
 import re
 import os
 
-from six import iterkeys
-from six.moves.urllib.parse import urlsplit
+from urllib.parse import urlsplit
 from collections import namedtuple
 
 
@@ -134,7 +133,7 @@ class FuzzyMatcher(object):
         if self.fuzzy_search_limit:
             fuzzy_params['limit'] = self.fuzzy_search_limit
 
-        for key in iterkeys(params):
+        for key in params.keys():
             if key not in self.FUZZY_SKIP_PARAMS:
                 fuzzy_params[key] = params[key]
 

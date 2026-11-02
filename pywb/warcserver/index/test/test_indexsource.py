@@ -10,7 +10,7 @@ from pywb.warcserver.test.testutils import key_ts_res, TEST_CDX_PATH, FakeRedisT
 from pywb.utils.canonicalize import canonicalize
 from pywb.utils.geventserver import GeventServer
 
-from six.moves.urllib.parse import parse_qs
+from urllib.parse import parse_qs
 
 import pytest
 import os

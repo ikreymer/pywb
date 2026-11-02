@@ -32,11 +32,10 @@ except ImportError:  # pragma: no cover
 
 from argparse import ArgumentParser, RawTextHelpFormatter
 
-from six import StringIO
+from io import StringIO
 
 from pywb.indexer.archiveindexer import DefaultRecordParser
 import codecs
-import six
 
 
 #=================================================================
@@ -84,7 +83,7 @@ class CDXJ(object):
 
         outdict = OrderedDict()
 
-        for n, v in six.iteritems(entry):
+        for n, v in entry.items():
             if n in ('urlkey', 'timestamp'):
                 continue
 

@@ -3,7 +3,7 @@ from .base_config_test import BaseConfigTest, fmod
 import webtest
 import os
 
-from six.moves.urllib.parse import urlencode
+from urllib.parse import urlencode
 
 
 # ============================================================================

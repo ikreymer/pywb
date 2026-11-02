@@ -6,14 +6,13 @@ from pywb.utils.dsrules import DEFAULT_RULES_FILE
 from pywb.utils.wbexception import AccessException, NotFoundException
 from pywb.utils.wbexception import BadRequestException, WbException
 
-from six.moves.urllib.error import HTTPError
+from urllib.error import HTTPError
 
 from mock import patch
 from pytest import raises
 import webtest
 import unittest
 
-import six
 
 from pywb import get_test_dir
 

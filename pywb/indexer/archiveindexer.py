@@ -8,7 +8,6 @@ from warcio.archiveiterator import ArchiveIterator
 
 import hashlib
 import base64
-import six
 
 import re
 import sys

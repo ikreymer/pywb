@@ -8,7 +8,6 @@ from pywb.warcserver.index.cdxobject import CDXException
 from pywb.warcserver.index.fuzzymatcher import FuzzyMatcher
 from pywb.warcserver.resource.responseloader import  WARCPathLoader, LiveWebLoader, VideoLoader
 
-import six
 import logging
 import traceback
 
@@ -117,11 +116,11 @@ class IndexHandler(object):
 
         def check_str(first_line, lines):
             if first_line is not None:
-                if isinstance(first_line, six.text_type):
+                if isinstance(first_line, str):
                     first_line = first_line.encode('utf-8')
                 yield first_line
             for line in lines:
-                if isinstance(line, six.text_type):
+                if isinstance(line, str):
                     line = line.encode('utf-8')
                 yield line
 

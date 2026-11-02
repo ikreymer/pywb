@@ -6,7 +6,7 @@ import os
 
 import webtest
 
-from six.moves.urllib.parse import urlencode
+from urllib.parse import urlencode
 
 from pywb.warcserver.index.cdxobject import CDXObject
 

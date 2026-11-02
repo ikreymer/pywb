@@ -1,7 +1,7 @@
 from warcio.statusandheaders import StatusAndHeaders
 from warcio.timeutils import datetime_to_http_date
 from datetime import datetime, timedelta, timezone
-from six.moves.urllib.parse import urlsplit
+from urllib.parse import urlsplit
 
 from pywb.utils.refresh import rewrite_refresh
 
